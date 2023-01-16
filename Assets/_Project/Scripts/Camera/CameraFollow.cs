@@ -12,6 +12,11 @@ public class CameraFollow : MonoBehaviour
     private Vector3 smoothPosition;
     private Vector3 cameraPosition;
 
+    private void Awake()
+    {
+        cameraPositionOffset = transform.position;
+    }
+
     private void LateUpdate()
     {
         CameraMove();
