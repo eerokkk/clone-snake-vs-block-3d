@@ -6,6 +6,8 @@ public class SnakeTail : MonoBehaviour
 {
     [SerializeField]
     private Transform playerHead;
+    [SerializeField]
+    private Transform snakeTail;
     [SerializeField] 
     private float tailDiameter;
     [SerializeField] 
@@ -16,8 +18,6 @@ public class SnakeTail : MonoBehaviour
     private void Start()
     {
         snakeTailsPositions.Add(playerHead.position);
-        AddTail();
-        AddTail();
     }
 
     private void Update()
@@ -26,7 +26,9 @@ public class SnakeTail : MonoBehaviour
 
         if (distance > tailDiameter)
         {
-            snakeTailsPositions.Insert(0, playerHead.position);
+            Vector3 direction = (playerHead.position - snakeTailsPositions[0]).normalized;
+
+            snakeTailsPositions.Insert(0, snakeTailsPositions[0] + direction * tailDiameter);
             snakeTailsPositions.RemoveAt(snakeTailsPositions.Count - 1);
             distance -= tailDiameter;
         }
@@ -37,10 +39,13 @@ public class SnakeTail : MonoBehaviour
         }
     }
 
-    public void AddTail()
+    public void AddTail(int tailCount)
     {
-        var tail = Instantiate(playerHead, snakeTailsPositions[snakeTailsPositions.Count - 1], Quaternion.identity, transform);
-        snakeTails.Add(tail);
-        snakeTailsPositions.Add(tail.position);
+        for (int i = 0; i <= tailCount; i++)
+        {
+            Transform tail = Instantiate(snakeTail, snakeTailsPositions[snakeTailsPositions.Count - 1], Quaternion.identity, transform);
+            snakeTails.Add(tail);
+            snakeTailsPositions.Add(tail.position);
+        }
     }
 }

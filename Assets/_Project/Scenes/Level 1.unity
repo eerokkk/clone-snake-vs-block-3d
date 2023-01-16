@@ -1095,6 +1095,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerHead: {fileID: 1080013435}
+  snakeTail: {fileID: 1873811256053997134, guid: d4a5e0f51ac1aba43ac4b7fc46ca464a,
+    type: 3}
   tailDiameter: 1
   snakeTails: []
   snakeTailsPositions: []
