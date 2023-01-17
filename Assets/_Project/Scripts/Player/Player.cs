@@ -1,3 +1,4 @@
+using System;
 using TMPro;
 using UnityEngine;
 
@@ -7,21 +8,32 @@ public class Player : MonoBehaviour
     private int playerHealthPoints;
     [SerializeField]
     private SnakeTail snakeTail;
+    [SerializeField]
+    private TextMeshProUGUI playerHealthPointsCount;
 
     private void Start()
     {
         snakeTail = GetComponent<SnakeTail>();
     }
 
-    public void SetHealthPoints(int foodCount)
+    public void SetHealthPoints(int count)
     {
-        playerHealthPoints += foodCount;
-        snakeTail.AddTail(foodCount);
+        playerHealthPoints += count;
+        playerHealthPointsCount.text = playerHealthPoints.ToString();
+    }
+
+    public void AddTails(int playerHealthPoint)
+    {
+        snakeTail.AddTail(playerHealthPoint);
     }
 
     private void Awake()
     {
-        var text = transform.GetChild(0).GetChild(0).GetComponent<TextMeshProUGUI>().text;
-        playerHealthPoints = int.Parse(text);
+        playerHealthPoints = int.Parse(playerHealthPointsCount.text);
+    }
+
+    public int GetPlayerHealthPoints()
+    {
+        return playerHealthPoints;
     }
 }

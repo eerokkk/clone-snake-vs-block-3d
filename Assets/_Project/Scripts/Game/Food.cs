@@ -21,6 +21,9 @@ public class Food : MonoBehaviour
 
         player.SetHealthPoints(foodCount);
 
+        player.TryGetComponent(out SnakeTail snakeTail);
+        snakeTail.AddTail(foodCount);
+
         Destroy(gameObject);
     }
 }
