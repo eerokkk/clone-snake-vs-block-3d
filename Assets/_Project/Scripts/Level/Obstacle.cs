@@ -3,7 +3,6 @@ using UnityEngine;
 
 public class Obstacle : MonoBehaviour
 {
-    private const float repulsiveForce = -200f;
     [SerializeField]
     private int damage;
     [SerializeField]
@@ -12,6 +11,20 @@ public class Obstacle : MonoBehaviour
     private void Start()
     {
         damage = int.Parse(text.text);
+    }
+
+    private void Update()
+    {
+        DestroyObstacle();
+    }
+
+    private void DestroyObstacle()
+    {
+        if (damage == 0)
+        {
+            Destroy(gameObject);
+            return;
+        }
     }
 
     private void OnCollisionStay(Collision collision)
@@ -26,9 +39,7 @@ public class Obstacle : MonoBehaviour
             return;
         }
         player.TryGetComponent(out SnakeTail snakeTail);
-        player.TryGetComponent(out Rigidbody playerRigidbody);
 
-        //playerRigidbody.AddForce(new Vector3(0f, 0f, repulsiveForce), ForceMode.VelocityChange);
         snakeTail.RemoveTail();
         player.SetHealthPoints(-1);
         

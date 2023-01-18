@@ -20,7 +20,7 @@ public class SnakeTail : MonoBehaviour
 
     private void Start()
     {
-        snakeTails.Add(playerHead.transform);
+        //snakeTails.Add(playerHead.transform);
         snakeTailsPositions.Add(playerHead.position);
         player = GetComponent<Player>();
     }
@@ -38,7 +38,7 @@ public class SnakeTail : MonoBehaviour
             distance -= tailDiameter;
         }
 
-        for (int i = 1; i < snakeTails.Count - 1; i++)
+        for (int i = 0; i <= snakeTails.Count - 1; i++)
         {
             snakeTails[i].position = Vector3.Lerp(snakeTailsPositions[i + 1], snakeTailsPositions[i], distance / tailDiameter);
         }
@@ -54,53 +54,18 @@ public class SnakeTail : MonoBehaviour
         }
     }
 
-    //public void RemoveTail(int tailCount)
-    //{
-    //    //TryGetComponent(out Player player);
-
-    //    print(snakeTails.Count);
-    //    print(snakeTailsPositions.Count);
-
-    //    var difference = player.GetPlayerHealthPoints() - tailCount;
-    //    print(player.GetPlayerHealthPoints());
-    //    print(difference);
-    //    switch (difference)
-    //    {
-    //        case > 0:
-    //            for (int i = player.GetPlayerHealthPoints(); i > difference; i--)
-    //            {
-    //                //print(snakeTails[i - 1]);
-    //                Destroy(snakeTails[i - 2].gameObject);
-    //                snakeTails.RemoveAt(i - 2);
-    //                snakeTailsPositions.RemoveAt(i - 1);
-    //            }
-    //            break;
-    //        case 0:
-    //            for (int i = player.GetPlayerHealthPoints(); i > difference; i--)
-    //            {
-    //                Destroy(snakeTails[i].gameObject);
-    //                snakeTails.RemoveAt(i);
-    //                snakeTailsPositions.RemoveAt(i);
-    //            }
-    //            print("Player is dead!");
-    //            break;
-    //        case < 0:
-    //            for (int i = player.GetPlayerHealthPoints(); i > 0; i--)
-    //            {
-    //                Destroy(snakeTails[i].gameObject);
-    //                snakeTails.RemoveAt(i);
-    //                snakeTailsPositions.RemoveAt(i);
-    //            }
-    //            print("Player is dead!");
-    //            break;
-    //    }
-
     public void RemoveTail()
     {
-        var lastIndex = snakeTails.Count - 1;
-        Destroy(snakeTails[lastIndex].gameObject);
-        snakeTails.RemoveAt(lastIndex);
-        snakeTailsPositions.RemoveAt(lastIndex);
+        if (snakeTails.Count != 0)
+        {
+            var lastIndex = snakeTails.Count - 1;
+            Destroy(snakeTails[lastIndex].gameObject);
+            snakeTails.RemoveAt(lastIndex);
+            snakeTailsPositions.RemoveAt(lastIndex);
+        }
+        else
+            player.gameObject.SetActive(false);
+
     }
 }
 
