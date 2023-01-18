@@ -3,6 +3,10 @@ using UnityEngine;
 
 public class Obstacle : MonoBehaviour
 {
+    private const int MinObstacleDamage = 1;
+    private const int MaxObstacleDamage = 100;
+    
+    
     [SerializeField]
     private int damage;
     [SerializeField]
@@ -10,7 +14,8 @@ public class Obstacle : MonoBehaviour
 
     private void Awake()
     {
-        damage = int.Parse(text.text);
+        RandomObstacleDamage();
+        RefreshUIText();
     }
 
     private void Update()
@@ -46,11 +51,21 @@ public class Obstacle : MonoBehaviour
         
         
         damage -= 1;
-        text.text = damage.ToString();
+        RefreshUIText();
     }
 
     public int GetObstacleDamage()
     {
         return damage;
+    }
+
+    private void RandomObstacleDamage()
+    {
+        damage = Random.Range(MinObstacleDamage, MaxObstacleDamage);
+    }
+
+    private void RefreshUIText()
+    {
+        text.text = damage.ToString();
     }
 }
