@@ -8,7 +8,7 @@ public class Obstacle : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI text;
 
-    private void Start()
+    private void Awake()
     {
         damage = int.Parse(text.text);
     }
@@ -47,5 +47,10 @@ public class Obstacle : MonoBehaviour
         
         damage -= 1;
         text.text = damage.ToString();
+    }
+
+    public int GetObstacleDamage()
+    {
+        return damage;
     }
 }

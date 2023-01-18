@@ -169,18 +169,6 @@ Transform:
   m_Father: {fileID: 1037539890}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &122272888 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 102582858562769611, guid: f3b01e4c1da7c1d4b820824b4d929f7a,
-    type: 3}
-  m_PrefabInstance: {fileID: 102582857974181685}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!43 &184354467
 Mesh:
   m_ObjectHideFlags: 0
@@ -1253,6 +1241,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1037539890}
     m_Modifications:
+    - target: {fileID: 1091617389, guid: f3b01e4c1da7c1d4b820824b4d929f7a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 102582856882629970, guid: f3b01e4c1da7c1d4b820824b4d929f7a,
         type: 3}
       propertyPath: m_Name
@@ -2216,6 +2208,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1037539890}
     m_Modifications:
+    - target: {fileID: 1091617389, guid: f3b01e4c1da7c1d4b820824b4d929f7a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 102582856882629970, guid: f3b01e4c1da7c1d4b820824b4d929f7a,
         type: 3}
       propertyPath: m_Name
@@ -2344,27 +2340,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Obstacle
       objectReference: {fileID: 0}
-    - target: {fileID: 102582856882629977, guid: f3b01e4c1da7c1d4b820824b4d929f7a,
-        type: 3}
-      propertyPath: text
-      value: 
-      objectReference: {fileID: 122272888}
-    - target: {fileID: 102582856882629977, guid: f3b01e4c1da7c1d4b820824b4d929f7a,
-        type: 3}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 1080013440}
-    - target: {fileID: 102582856882629977, guid: f3b01e4c1da7c1d4b820824b4d929f7a,
-        type: 3}
-      propertyPath: snakeTail
-      value: 
-      objectReference: {fileID: 1080013439}
-    - target: {fileID: 102582856882629980, guid: f3b01e4c1da7c1d4b820824b4d929f7a,
-        type: 3}
-      propertyPath: m_Material
-      value: 
-      objectReference: {fileID: 13400000, guid: 647fb666af326d44099f353dbe4e9b80,
-        type: 2}
     - target: {fileID: 102582856882629981, guid: f3b01e4c1da7c1d4b820824b4d929f7a,
         type: 3}
       propertyPath: m_RootOrder
@@ -2420,11 +2395,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 102582856882629983, guid: f3b01e4c1da7c1d4b820824b4d929f7a,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 67561b2c623d9444bbb4cd994d617294, type: 2}
     - target: {fileID: 102582857374061236, guid: f3b01e4c1da7c1d4b820824b4d929f7a,
         type: 3}
       propertyPath: m_Camera
@@ -2433,7 +2403,7 @@ PrefabInstance:
     - target: {fileID: 102582858562769611, guid: f3b01e4c1da7c1d4b820824b4d929f7a,
         type: 3}
       propertyPath: m_text
-      value: 6
+      value: 100
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f3b01e4c1da7c1d4b820824b4d929f7a, type: 3}
@@ -2448,6 +2418,16 @@ PrefabInstance:
       propertyPath: playerHealthPointsCount
       value: 
       objectReference: {fileID: 72456903}
+    - target: {fileID: 1201447267177814288, guid: 17546434fa3d0cb4c81ee0aa8318c7c1,
+        type: 3}
+      propertyPath: m_text
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1201447267177814288, guid: 17546434fa3d0cb4c81ee0aa8318c7c1,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 18
+      objectReference: {fileID: 0}
     - target: {fileID: 1201447267802119809, guid: 17546434fa3d0cb4c81ee0aa8318c7c1,
         type: 3}
       propertyPath: m_RootOrder
@@ -2540,7 +2520,12 @@ PrefabInstance:
     - target: {fileID: 3815877676698300834, guid: 138ace7d479543b489f4c6ca4e064b15,
         type: 3}
       propertyPath: m_text
-      value: 5
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 3815877676698300834, guid: 138ace7d479543b489f4c6ca4e064b15,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 55.1
       objectReference: {fileID: 0}
     - target: {fileID: 3815877676816506979, guid: 138ace7d479543b489f4c6ca4e064b15,
         type: 3}

@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 102582856882629983}
   - component: {fileID: 102582856882629980}
   - component: {fileID: 102582856882629977}
+  - component: {fileID: 1091617389}
   m_Layer: 0
   m_Name: Obstacle
   m_TagString: Untagged
@@ -27,7 +28,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 102582856882629970}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 1, z: 40.54}
   m_LocalScale: {x: 2.5, y: 2.5, z: 2.5}
   m_ConstrainProportionsScale: 0
@@ -64,7 +65,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 1454475d0180bb442ae407477a1869a4, type: 2}
+  - {fileID: 2100000, guid: 67561b2c623d9444bbb4cd994d617294, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -93,7 +94,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 102582856882629970}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 647fb666af326d44099f353dbe4e9b80, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -112,6 +113,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 0
+  text: {fileID: 102582858562769611}
+--- !u!114 &1091617389
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 102582856882629970}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7cf88fe75318704ea6e0d6f28b013c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  obstacleMeshRenderer: {fileID: 102582856882629983}
+  obstacle: {fileID: 102582856882629977}
 --- !u!1 &102582857374061131
 GameObject:
   m_ObjectHideFlags: 0
@@ -255,7 +271,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 3
+  m_text: 50
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: e73a58f6e2794ae7b1b7e50b7fb811b0, type: 2}
