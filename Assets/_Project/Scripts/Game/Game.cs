@@ -20,10 +20,15 @@ public class Game : MonoBehaviour
     private GameObject losePanel;
     [SerializeField]
     private GameObject winPanel;
+    [SerializeField]
+    private AudioSource gameAudioSource;
+    [SerializeField]
+    private AudioClip finishSound;
 
     private void Awake()
     {
         Instance = GetComponent<Game>();
+        gameAudioSource = GetComponent<AudioSource>();
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
         CurrentGameState = GameState.Playing;
     }
@@ -40,6 +45,7 @@ public class Game : MonoBehaviour
     public void OnPlayerWin()
     {
         CurrentGameState = GameState.Win;
+        gameAudioSource.PlayOneShot(finishSound);
         player.gameObject.SetActive(false);
         winPanel.SetActive(true);
     }

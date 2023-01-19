@@ -11,9 +11,16 @@ public class Obstacle : MonoBehaviour
     private int damage;
     [SerializeField]
     private TextMeshProUGUI text;
+    [SerializeField]
+    private AudioSource obstacleAudioSource;
+    [SerializeField]
+    private AudioClip playerLoseClip;
+    [SerializeField]
+    private ParticleSystem obstacleDestroyingParticleSystem;
 
     private void Awake()
     {
+        obstacleAudioSource = GetComponent<AudioSource>();
         RandomObstacleDamage();
         RefreshUIText();
     }
@@ -44,14 +51,23 @@ public class Obstacle : MonoBehaviour
             return;
         }
         player.TryGetComponent(out SnakeTail snakeTail);
+        obstacleDestroyingParticleSystem.Play();
 
         snakeTail.RemoveTail();
         player.SetHealthPoints(-1);
-        
-        
-        
+
+        PlaySoundOnPlayerLose(player);
+
         damage -= 1;
         RefreshUIText();
+    }
+
+    private void PlaySoundOnPlayerLose(Player player)
+    {
+        if (player.GetPlayerHealthPoints() == 0)
+        {
+            obstacleAudioSource.PlayOneShot(playerLoseClip);
+        }
     }
 
     public int GetObstacleDamage()

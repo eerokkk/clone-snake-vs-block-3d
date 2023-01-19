@@ -324,3 +324,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   foodCount: 0
+  foodAudioSource: {fileID: 0}
+  foodAudioClip: {fileID: 0}
